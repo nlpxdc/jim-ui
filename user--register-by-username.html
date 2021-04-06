@@ -16,11 +16,15 @@
 <body>
 
     <div id="app">
-        <van-button type="primary">主要按钮</van-button>
-        {{ message }}
+        <van-cell-group>
+            <van-field v-model="username" label="用户名" placeholder="请输入用户名"></van-field>
+            <van-field v-model="password" label="密码" placeholder="请输入密码" type="password"></van-field>
+        </van-cell-group>
+        <van-button type="primary" @click="handleRegisterTap">注册</van-button>
     </div>
 
     <script src="asset/js/axios.min.js"></script>
+    <script src="asset/js/common.js"></script>
     <script src="asset/js/vue.js"></script>
     <script src="asset/js/vant.js"></script>
     <script src="viewmodel/user--register-by-username.js"></script>
