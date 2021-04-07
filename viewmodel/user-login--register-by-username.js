@@ -6,6 +6,9 @@ var app = new Vue({
             password: ''
         }
     },
+    mounted() {
+        console.log('view mounted');
+    },
     methods: {
         handleRegisterTap() {
             console.log('register tap');

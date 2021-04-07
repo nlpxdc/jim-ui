@@ -5,6 +5,9 @@ var app = new Vue({
 
         }
     },
+    mounted() {
+        console.log('view mounted');
+    },
     methods: {
         call() {
             axios.post('')
