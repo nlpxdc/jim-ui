@@ -1,8 +1,10 @@
 var app = new Vue({
     el: '#app',
-    data: {
-        username: '',
-        password: ''
+    data() {
+        return {
+            username: '',
+            password: ''
+        }
     },
     methods: {
         handleRegisterTap() {
@@ -14,13 +16,13 @@ var app = new Vue({
                 username: this.username,
                 password: this.password
             })
-                .then(function (response) {
+                .then(response => {
                     console.log(response);
                     var data = response.data;
                     localStorage['jimAccessToken'] = data.accessToken;
-                    alert('register succeed'+data.userId);
+                    alert('register succeed' + data.userId);
                 })
-                .catch(function (error) {
+                .catch(error => {
                     console.log(error);
                     alert(error.response.data.message);
                 });
