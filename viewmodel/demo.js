@@ -10,7 +10,9 @@ var app = new Vue({
     },
     methods: {
         call() {
-            axios.post('')
+            axios.post('', {
+
+            })
                 .then(response => {
                     console.log(response);
                 })
