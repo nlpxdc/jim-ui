@@ -23,6 +23,10 @@ var app = new Vue({
             })
                 .then(response => {
                     console.log(response);
+                    var user = response.data;
+                    if (user) {
+                        location.href = 'user-base--load.html?userId=' + user.userId;
+                    }
                 })
                 .catch(error => {
                     console.log(error);
