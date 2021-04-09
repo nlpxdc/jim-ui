@@ -25,7 +25,7 @@ var app = new Vue({
                 })
                 .catch(error => {
                     console.log(error);
-                    alert('update failed');
+                    alert(error.response.data.message);
                 });
         }
     }
