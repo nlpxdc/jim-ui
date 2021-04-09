@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>user-base--get-by-username</title>
+    <link rel="stylesheet" href="asset/css/index.css">
+    <!-- <script src="asset/js/vconsole.min.js"></script>
+    <script>
+        var vConsole = new VConsole();
+    </script> -->
+</head>
+
+<body>
+
+    <div id="app">
+        <van-search v-model="username" placeholder="请输入搜索用户名"></van-search>
+        <van-button type="primary" @click="handleSearchTap">搜索</van-button>
+    </div>
+
+    <script src="asset/js/axios.min.js"></script>
+    <script src="asset/js/common.js"></script>
+    <script src="asset/js/vue.js"></script>
+    <script src="asset/js/vant.js"></script>
+    <script src="viewmodel/user-base--get-by-username.js"></script>
+</body>
+
+</html>
