@@ -7,10 +7,10 @@ var app = new Vue({
     },
     mounted() {
         console.log('view mounted');
-        this.userBaseGetProfile();
+        this.userBaseLoadProfile();
     },
     methods: {
-        userBaseGetProfile() {
+        userBaseLoadProfile() {
             axios.post('/userBase/loadProfile')
                 .then(response => {
                     console.log(response);
