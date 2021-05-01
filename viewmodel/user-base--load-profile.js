@@ -11,7 +11,7 @@ var app = new Vue({
     },
     methods: {
         userBaseGetProfile() {
-            axios.post('/userBase/getProfile')
+            axios.post('/userBase/loadProfile')
                 .then(response => {
                     console.log(response);
                     this.user = response.data;
