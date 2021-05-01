@@ -3,7 +3,7 @@ var app = new Vue({
     data() {
         return {
             username: '',
-            password: ''
+            loginPassword: ''
         }
     },
     mounted() {
@@ -17,7 +17,7 @@ var app = new Vue({
         userRegisterByUsername() {
             axios.post('/userLogin/registerByUsername', {
                 username: this.username,
-                password: this.password
+                loginPassword: this.loginPassword
             })
                 .then(response => {
                     console.log(response);
