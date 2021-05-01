@@ -2,7 +2,9 @@ var app = new Vue({
     el: '#app',
     data() {
         return {
-            user: ''
+            username: '',
+            nickname: '',
+            area: ''
         }
     },
     mounted() {
@@ -14,7 +16,10 @@ var app = new Vue({
             axios.post('/userBase/loadProfile')
                 .then(response => {
                     console.log(response);
-                    this.user = response.data;
+                    var user = response.data;
+                    this.username = user.username;
+                    this.nickname = user.username;
+                    this.area = user.area;
                 })
                 .catch(error => {
                     console.log(error);
