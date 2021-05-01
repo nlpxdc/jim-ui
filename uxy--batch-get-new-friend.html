@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>uxy--batch-get-new-friend</title>
+    <link rel="stylesheet" href="asset/css/index.css">
+    <!-- <script src="asset/js/vconsole.min.js"></script>
+    <script>
+        var vConsole = new VConsole();
+    </script> -->
+</head>
+
+<body>
+
+    <div id="app">
+        <van-cell-group>
+            <van-cell v-for="newFriend in newFriends" :key="newFriend.uxId" :title="newFriend.ux.username" value="接受"></van-cell>
+        </van-cell-group>
+    </div>
+
+    <script src="asset/js/axios.min.js"></script>
+    <script src="asset/js/common.js"></script>
+    <script src="asset/js/vue.js"></script>
+    <script src="asset/js/vant.js"></script>
+    <script src="viewmodel/uxy--batch-get-new-friend.js"></script>
+</body>
+
+</html>
