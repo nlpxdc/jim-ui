@@ -17,7 +17,7 @@
 
     <div id="app">
         <van-cell-group>
-            <van-cell v-for="friend in friends" :key="friend.uyId" :title="uyMap ? uyMap.get(friend.uyId).username : friend.uyId"></van-cell>
+            <van-cell v-for="friend in sortFriends" :key="friend.uyId" :title="uyMap ? uyMap.get(friend.uyId).username : friend.uyId"></van-cell>
         </van-cell-group>
     </div>
 

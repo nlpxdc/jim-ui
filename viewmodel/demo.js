@@ -8,6 +8,8 @@ var app = new Vue({
     mounted() {
         console.log('view mounted');
     },
+    computed: {
+    },
     methods: {
         call() {
             axios.post('', {

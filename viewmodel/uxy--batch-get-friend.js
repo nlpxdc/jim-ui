@@ -10,6 +10,19 @@ var app = new Vue({
         console.log('view mounted');
         this.uxyBatchGetFriend();
     },
+    computed: {
+        sortFriends() {
+            if (this.uyMap) {
+                return this.friends.sort((a, b) => {
+                    var aname = this.uyMap.get(a.uyId).username;
+                    var bname = this.uyMap.get(b.uyId).username;
+                    return aname.localeCompare(bname);
+                });
+            } else {
+                return this.friends;
+            }
+        }
+    },
     methods: {
         userBaseBatchLoad(userIds) {
             axios.post('/userBase/batchLoad', {
