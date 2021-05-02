@@ -2,7 +2,8 @@ var app = new Vue({
     el: '#app',
     data() {
         return {
-            newFriends: []
+            newFriends: [],
+            uxMap: ''
         }
     },
     mounted() {
@@ -14,11 +15,27 @@ var app = new Vue({
             console.log('agree tap');
             this.uxyAgreeFriend(uxId);
         },
+        userBatchLoad(userIds) {
+            axios.post('/userBase/batchLoad', {
+                userIds: userIds
+            })
+                .then(response => {
+                    console.log(response);
+                    const uxs = response.data;
+                    this.uxMap = new Map(uxs.map(v => [v.userId, v]));
+                })
+                .catch(error => {
+                    console.log(error);
+                    alert(error.response.data.message);
+                });
+        },
         uxyBatchGetNewFriend() {
             axios.post('/uxy/batchGetNewFriend')
                 .then(response => {
                     console.log(response);
                     this.newFriends = response.data;
+                    var uxIds = this.newFriends.map(n => n.uxId); 
+                    this.userBatchLoad(uxIds);
                 })
                 .catch(error => {
                     console.log(error);
