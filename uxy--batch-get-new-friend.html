@@ -17,7 +17,11 @@
 
     <div id="app">
         <van-cell-group>
-            <van-cell v-for="newFriend in newFriends" :key="newFriend.uxId" :title="newFriend.ux.username" value="接受"></van-cell>
+            <van-cell v-for="newFriend in newFriends" :key="newFriend.uxId" :title="newFriend.ux.username">
+                <template>
+                    <van-button type="primary" size="small" @click="handleAgreeTap">接受</van-button>
+                </template>
+            </van-cell>
         </van-cell-group>
     </div>
 
