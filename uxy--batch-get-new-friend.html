@@ -19,7 +19,8 @@
         <van-cell-group>
             <van-cell v-for="newFriend in newFriends" :key="newFriend.uxId" :title="newFriend.ux.username">
                 <template>
-                    <van-button type="primary" size="small" @click="handleAgreeTap(newFriend.uxId)">接受</van-button>
+                    <van-button v-if="newFriend.beFriend" type="default" size="small" disabled>已接受</van-button>
+                    <van-button v-else type="primary" size="small" @click="handleAgreeTap(newFriend.uxId)">接受</van-button>
                 </template>
             </van-cell>
         </van-cell-group>
