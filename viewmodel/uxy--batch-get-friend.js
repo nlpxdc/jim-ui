@@ -2,53 +2,36 @@ var app = new Vue({
     el: '#app',
     data() {
         return {
-            newFriends: [],
-            uxMap: ''
+            friends: [],
+            uyMap: ''
         }
     },
     mounted() {
         console.log('view mounted');
-        this.uxyBatchGetNewFriend();
+        this.uxyBatchGetFriend();
     },
     methods: {
-        handleAgreeTap(uxId) {
-            console.log('agree tap');
-            this.uxyAgreeFriend(uxId);
-        },
         userBaseBatchLoad(userIds) {
             axios.post('/userBase/batchLoad', {
                 userIds: userIds
             })
                 .then(response => {
                     console.log(response);
-                    const uxs = response.data;
-                    this.uxMap = new Map(uxs.map(v => [v.userId, v]));
+                    const uys = response.data;
+                    this.uyMap = new Map(uys.map(v => [v.userId, v]));
                 })
                 .catch(error => {
                     console.log(error);
                     alert(error.response.data.message);
                 });
         },
-        uxyBatchGetNewFriend() {
-            axios.post('/uxy/batchGetNewFriend')
+        uxyBatchGetFriend() {
+            axios.post('/uxy/batchGetFriend')
                 .then(response => {
                     console.log(response);
-                    this.newFriends = response.data;
-                    var uxIds = this.newFriends.map(n => n.uxId); 
-                    this.userBaseBatchLoad(uxIds);
-                })
-                .catch(error => {
-                    console.log(error);
-                    alert(error.response.data.message);
-                });
-        },
-        uxyAgreeFriend(userId) {
-            axios.post('/uxy/agreeFriend', {
-                userId: userId
-            })
-                .then(response => {
-                    console.log(response);
-                    alert('succeed');
+                    this.friends = response.data;
+                    var uyIds = this.friends.map(f => f.uyId);
+                    this.userBaseBatchLoad(uyIds);
                 })
                 .catch(error => {
                     console.log(error);
